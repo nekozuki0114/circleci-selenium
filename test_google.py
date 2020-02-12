@@ -22,7 +22,7 @@ class TestGoogle:
 
         driver.save_screenshot("test-reports/result_002.png")
 
-        driver.find_element_by_css_selector("#tsf > div:nth-child(2) > div > div.FPdoLc.VlcLAe > center > input.gNO89b").click()
+        driver.find_element_by_css_selector("#tsf > div:nth-child(2) > div > div.FPdoLc tfB0Bf > center > input.gNO89b").click()
 
         driver.save_screenshot("test-reports/result_003.png")
 
