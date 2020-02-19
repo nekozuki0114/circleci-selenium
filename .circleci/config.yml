@@ -36,12 +36,12 @@ jobs:
             pip install -r requirements.txt
 
       - run: mkdir test-reports
-
+      
       - save_cache:
           paths:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
-
+      - run: php -v
       # run tests!
       # this example uses Django's built-in test-runner
       # other common Python testing frameworks include pytest and nose
