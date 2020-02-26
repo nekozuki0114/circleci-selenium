@@ -11,12 +11,12 @@ class TestGoogle:
         cls.driver.maximize_window()
 
     def setup_method(self):
-        self.driver.get("http://localhost:80/")
+        self.driver.get("http://dvwa:80/")
 
     def test_case(self):
         driver = self.driver
 
-        driver.save_screenshot("test-reports/result_001.png")
+        driver.save_screenshot("test-reports/result1.png")
 
 
     def teardown_class(cls):
