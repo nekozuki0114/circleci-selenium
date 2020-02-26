@@ -21,7 +21,7 @@ jobs:
       - setup_remote_docker
       - checkout
       - run:
-          docker run -d --link --name selenium circleci/python:3.7.3-browsers -it -p 8888:80 vulnerables/web-dvwa 
+          docker run -d --link --name circleci/python:3.7.3-browsers -it -p 8888:80 vulnerables/web-dvwa 
       - run:
           docker ps
       - run:
