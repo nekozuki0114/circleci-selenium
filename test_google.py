@@ -11,7 +11,7 @@ class TestGoogle:
         cls.driver.maximize_window()
 
     def setup_method(self):
-        self.driver.get("http://172.17.0.2/")
+        self.driver.get("http://172.17.0.1:8888/")
 
     def test_case(self):
         driver = self.driver
