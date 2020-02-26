@@ -21,7 +21,7 @@ jobs:
     steps:
       - setup_remote_docker
       - checkout
-      - run:
+   #   - run:
    #       docker run -d -it -p 8888:80 vulnerables/web-dvwa 
       - run:
           docker ps    
