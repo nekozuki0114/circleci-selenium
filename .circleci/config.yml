@@ -23,9 +23,7 @@ jobs:
       - run:
           docker run -d -it -p 8888:80 vulnerables/web-dvwa 
       - run:
-          docker ps
-      - run:
-          docker exec -it httpdclient env     
+          docker ps    
  # Download and cache dependencies
       - restore_cache:
           keys:
