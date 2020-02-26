@@ -9,7 +9,7 @@ jobs:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       - image: circleci/python:3.7.3-browsers
-          
+      - image: vulnerables/web-dvwa    
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -21,7 +21,8 @@ jobs:
       - setup_remote_docker
       - checkout
       - run:
-          docker run -d -it -p 80:80 vulnerables/web-dvwa 
+        ip netns list
+#          docker run -d -it -p 80:80 vulnerables/web-dvwa 
       - run:
           docker ps    
  # Download and cache dependencies
