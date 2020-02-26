@@ -11,18 +11,14 @@ class TestGoogle:
         cls.driver.maximize_window()
 
     def setup_method(self):
-        self.driver.get("https://google.com")
+        self.driver.get("http://127.0.0.1:80/")
 
     def test_case(self):
         driver = self.driver
 
         driver.save_screenshot("test-reports/result_001.png")
 
-        driver.find_element_by_css_selector("#tsf > div:nth-child(2) > div > div.RNNXgb > div > div.a4bIc > input").send_keys("hoge")
-
         driver.save_screenshot("test-reports/result_002.png")
-
-        driver.find_element_by_css_selector("#tsf > div:nth-child(2) > div > div.RNNXgb > div > div.a4bIc > input").send_keys("huga")        
 
         driver.save_screenshot("test-reports/result_003.png")
 

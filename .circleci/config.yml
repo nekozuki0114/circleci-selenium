@@ -19,7 +19,8 @@ jobs:
 
     steps:
       - checkout
-
+      - run:
+	 docker run --rm -it -p 80:80 vulnerables/web-dvwa
       # Download and cache dependencies
       - restore_cache:
           keys:
