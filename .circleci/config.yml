@@ -21,7 +21,7 @@ jobs:
       - setup_remote_docker
       - checkout
       - run:
-          docker run -d -it -p 8888:80 vulnerables/web-dvwa 
+          docker run -d -it -p 80:80 vulnerables/web-dvwa 
       - run:
           docker ps    
  # Download and cache dependencies
