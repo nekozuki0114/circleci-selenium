@@ -38,9 +38,7 @@ jobs:
 
       - run: mkdir test-reports
       #ここから下がVaddyのセットアップ
-      - run 
-          name: VAddy依存パッケージのインストール
-          command: sudo apt-get update && sudo apt-get install openjdk-8-jre
+      - run sudo apt-get update && sudo apt-get install openjdk-8-jre
 
       - run: git clone https://github.com/vaddy/go-vaddy.git
     
