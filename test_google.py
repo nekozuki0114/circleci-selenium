@@ -11,7 +11,7 @@ class TestGoogle:
         cls.driver.maximize_window()
 
     def setup_method(self):
-        self.driver.get("http://127.0.0.1:80/")
+        self.driver.get("http://localhost:80/")
 
     def test_case(self):
         driver = self.driver
