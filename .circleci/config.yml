@@ -48,8 +48,6 @@ jobs:
       # https://pytest.org
       # https://nose.readthedocs.io
       - run:
-           
-      - run:
           name: run tests
           command: |
             . venv/bin/activate
