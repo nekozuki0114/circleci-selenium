@@ -18,9 +18,6 @@ class TestGoogle:
 
         driver.save_screenshot("test-reports/result_001.png")
 
-        driver.save_screenshot("test-reports/result_002.png")
-
-        driver.save_screenshot("test-reports/result_003.png")
 
     def teardown_class(cls):
         cls.driver.quit()

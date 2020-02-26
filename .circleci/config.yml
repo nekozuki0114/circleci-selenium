@@ -22,7 +22,8 @@ jobs:
       - checkout
       - run:
           docker run -d -it -p 80:80 vulnerables/web-dvwa
-      # Download and cache dependencies
+          docker ps     
+ # Download and cache dependencies
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "requirements.txt" }}
@@ -52,7 +53,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            pytest test_google.py -v --junit-xml=test-results/regression/results.xml
+      #      pytest test_google.py -v --junit-xml=test-results/regression/results.xml
 
       - store_artifacts:
           path: test-reports/
