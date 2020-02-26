@@ -38,8 +38,8 @@ jobs:
 
       - run: mkdir test-reports
       #ここから下がVaddyのセットアップ
-      - run apt update
-      - run apt install openjdk-8-jre
+      - run: apt-get update
+      - run: apt-get install openjdk-8-jre
 
       - run: git clone https://github.com/vaddy/go-vaddy.git
     
