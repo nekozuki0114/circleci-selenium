@@ -21,9 +21,11 @@ jobs:
       - setup_remote_docker
       - checkout
       - run:
-          docker run -d -it -p 8888:80 vulnerables/web-dvwa 
+          docker run -d --link --name selenium -it -p 8888:80 vulnerables/web-dvwa 
       - run:
-          docker ps     
+          docker ps
+      - run:
+          docker exec -it httpdclient env     
  # Download and cache dependencies
       - restore_cache:
           keys:
