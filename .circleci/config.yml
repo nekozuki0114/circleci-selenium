@@ -51,7 +51,7 @@ jobs:
       # https://pytest.org
       # https://nose.readthedocs.io
       - run:
-          docker-machine ip default 
+          machine ip default 
       - run:
           name: run tests
           command: |
