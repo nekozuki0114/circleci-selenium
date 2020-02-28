@@ -41,7 +41,7 @@ jobs:
       - run: mkdir test-reports
      
 
-      - run: mkdir ~/.ssh/ && echo -e "Host pfd.vaddy.net\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+      - run: mkdirecho -e "Host pfd.vaddy.net\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
 
       #ここから下がVaddyのセットアップ
       - run: sudo rm -rf /var/lib/apt/lists/* && sudo apt-get update
