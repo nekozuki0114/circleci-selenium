@@ -39,6 +39,10 @@ jobs:
       - run: echo $ip
       - run: echo $example123123123.com
       - run: mkdir test-reports
+     
+
+      - run: mkdir ~/.ssh/ && echo -e "Host pfd.vaddy.net\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+
       #ここから下がVaddyのセットアップ
       - run: sudo rm -rf /var/lib/apt/lists/* && sudo apt-get update
       - run: sudo apt-get install openjdk-8-jre
