@@ -36,7 +36,7 @@ jobs:
             pip install --upgrade pip
             pip install -r requirements.txt
       - run: ip=`hostname -i`
-      - run: echo $ip
+      - run: echo ip
       - run: mkdir test-reports
       #ここから下がVaddyのセットアップ
       - run: sudo rm -rf /var/lib/apt/lists/* && sudo apt-get update
