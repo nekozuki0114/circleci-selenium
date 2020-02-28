@@ -1,5 +1,6 @@
 import pytest
-from selenium import webdriver
+import time
+from selenium imaport webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
 class TestGoogle:
@@ -12,7 +13,7 @@ class TestGoogle:
 
     def setup_method(self):
         self.driver.get("http://example123123123.com/vaddy-f5b30903bb749fe3447b.html")
-
+   time.sleep(30)
     def test_case(self):
         driver = self.driver
 
