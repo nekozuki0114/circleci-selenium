@@ -35,6 +35,7 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
+      - run: hostname -i
       - run: ip='hostname -i 2>&1'
       - run: echo $ip
       - run: mkdir test-reports
