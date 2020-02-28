@@ -35,10 +35,8 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
-      - run: hostname -i
-      - run: echo $server_name
-      - run: echo $server_addr
-      - run: echo $server_port
+      - run: $ip=`hostname -i`
+      - run: echo $ip
       - run: mkdir test-reports
       #ここから下がVaddyのセットアップ
       - run: sudo rm -rf /var/lib/apt/lists/* && sudo apt-get update
