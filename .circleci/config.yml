@@ -51,7 +51,7 @@ jobs:
       - run: echo export VADDY_FQDN=\"www.example123123123.com\" >>  go-vaddy/privatenet/conf/vaddy.conf
       - run: echo export VADDY_VERIFICATION_CODE="f5b30903bb749fe3447b" >>  go-vaddy/privatenet/conf/vaddy.conf
       - run: echo export VADDY_USER=\"shikimeguru\" >>  go-vaddy/privatenet/conf/vaddy.conf
-      - run: echo export VADDY_YOUR_LOCAL_IP=\"`hostname -i|cut -c 2-13`4\" >> go-vaddy/privatenet/conf/vaddy.conf
+      - run: echo export VADDY_YOUR_LOCAL_IP=\"`hostname -i|cut -c 2-12`4\" >> go-vaddy/privatenet/conf/vaddy.conf
       - run: echo export export VADDY_YOUR_LOCAL_PORT=\"80\" >> go-vaddy/privatenet/conf/vaddy.conf
       - run: cat go-vaddy/privatenet/conf/vaddy.conf
       - run: ls go-vaddy
