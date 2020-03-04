@@ -17,7 +17,6 @@ jobs:
       # - image: circleci/postgres:9.4
 
     working_directory: ~/repo
-    run-tests: context: VADDY
     steps:
       - setup_remote_docker
       - checkout    
@@ -89,6 +88,7 @@ workflows:
   normal_workflow:
     jobs:
       - build
+          context: VADDY
   schedule_workflow:
     triggers:
       - schedule:
