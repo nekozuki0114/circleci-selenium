@@ -37,6 +37,7 @@ jobs:
             pip install --upgrade pip
             pip install -r requirements.txt
       - run: mkdir test-reports
+      - run: echo "$VADDY_AUTH_KEY"
       - run: hostname -i
 
       - run: echo -e "Host pfd.vaddy.net\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
