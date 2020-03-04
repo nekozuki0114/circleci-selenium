@@ -4,8 +4,6 @@
 #
 version: 2
 jobs:
-  - run-tests:
-      context: VADDY
   build:
     docker:
       # specify the version you desire here
@@ -38,7 +36,7 @@ jobs:
             pip install --upgrade pip
             pip install -r requirements.txt
       - run: mkdir test-reports
-      - run: echo "$VADDY_AUTH_KEY"
+      - run: echo "${VADDY_AUTH_KEY}"
       - run: hostname -i
 
       - run: echo -e "Host pfd.vaddy.net\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
@@ -50,9 +48,9 @@ jobs:
       - run: git clone https://github.com/vaddy/go-vaddy.git
     
       - run: touch go-vaddy/privatenet/conf/vaddy.conf
-      - run: echo export VADDY_AUTH_KEY=\"$VADDY_AUTH_KEY\" >>  go-vaddy/privatenet/conf/vaddy.conf  
-      - run: echo export VADDY_FQDN=\"$VADDY_FQDN\" >>  go-vaddy/privatenet/conf/vaddy.conf
-      - run: echo export VADDY_VERIFICATION_CODE=\"$VADDY_VERIFICATION_CODE\" >>  go-vaddy/privatenet/conf/vaddy.conf
+      - run: echo export VADDY_AUTH_KEY=\"${VADDY_AUTH_KEY}\" >>  go-vaddy/privatenet/conf/vaddy.conf  
+      - run: echo export VADDY_FQDN=\"${VADDY_FQDN}\" >>  go-vaddy/privatenet/conf/vaddy.conf
+      - run: echo export VADDY_VERIFICATION_CODE=\"${VADDY_VERIFICATION_CODE}\" >>  go-vaddy/privatenet/conf/vaddy.conf
       - run: echo export VADDY_USER=\"$VADDY_USER\" >>  go-vaddy/privatenet/conf/vaddy.conf
       - run: echo export VADDY_YOUR_LOCAL_IP=\"`hostname -i|sed -e 's/.3$//g'`.4\" >> go-vaddy/privatenet/conf/vaddy.conf
       - run: echo export export VADDY_YOUR_LOCAL_PORT=\"$VADDY_YOUR_LOCAL_PORT\" >> go-vaddy/privatenet/conf/vaddy.conf
