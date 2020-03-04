@@ -6,44 +6,25 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       - image: circleci/python:3.7.3-browsers
       - image: geranium/custamdvwa    
         name: example123123123.com
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
 
     working_directory: ~/repo
     steps:
       - setup_remote_docker
       - checkout    
- # Download and cache dependencies
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "requirements.txt" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run:
-          name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install --upgrade pip
-            pip install -r requirements.txt
-      - run: mkdir test-reports
-      - run: echo "${VADDY_AUTH_KEY}"
-      - run: hostname -i
-
       - run: echo -e "Host pfd.vaddy.net\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
 
       #ここから下がVaddyのセットアップ
       - run: sudo rm -rf /var/lib/apt/lists/* && sudo apt-get update
       - run: sudo apt-get install openjdk-8-jre
-
       - run: git clone https://github.com/vaddy/go-vaddy.git
     
       - run: touch go-vaddy/privatenet/conf/vaddy.conf
@@ -54,35 +35,9 @@ jobs:
       - run: echo export VADDY_YOUR_LOCAL_IP=\"`hostname -i|sed -e 's/.3$//g'`.4\" >> go-vaddy/privatenet/conf/vaddy.conf
       - run: echo export export VADDY_YOUR_LOCAL_PORT=\"$VADDY_YOUR_LOCAL_PORT\" >> go-vaddy/privatenet/conf/vaddy.conf
       - run: cat go-vaddy/privatenet/conf/vaddy.conf
-      - run: ls go-vaddy
-      - run: ls go-vaddy/privatenet
-      - run: ls go-vaddy/privatenet/conf 
       - run: cd go-vaddy/privatenet/ && ./vaddy_privatenet.sh connect
-      
-      - run:
-          name: run tests
-          command: |
-            . venv/bin/activate
-            pytest test_google.py -v --junit-xml=test-results/regression/results.xml
-
-      - store_artifacts:
-          path: test-reports/
-          destination: test-reports
-
-      - store_test_results:
-          path: test-results
-
- 
       - run: cd go-vaddy/privatenet/ && ./vaddy_privatenet.sh scan
-      - save_cache:
-          paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
-      # run tests!v
-      # this example uses Django's built-in test-runner
-      # other common Python testing frameworks include pytest and nose
-      # https://pytest.org
-      # https://nose.readthedocs.io
+
 workflows:
   version: 2
   normal_workflow:
