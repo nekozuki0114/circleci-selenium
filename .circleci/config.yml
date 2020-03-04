@@ -43,13 +43,15 @@ workflows:
     jobs:
       - build:
           context: VADDY
-  schedule_workflow:
-    triggers:
-      - schedule:
-          cron: "1 7 * * *" # UTCで記述。-9
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - build
+
+#  繰り返し用
+#  schedule_workflow:
+#    triggers:
+#      - schedule:
+#          cron: "1 7 * * *" # UTCで記述。-9
+#          filters:
+#            branches:
+#              only:
+#                - master
+#    jobs:
+#      - build
