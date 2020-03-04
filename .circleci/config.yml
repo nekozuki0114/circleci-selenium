@@ -4,6 +4,8 @@
 #
 version: 2
 jobs:
+  - run-tests:
+      context: VADDY
   build:
     docker:
       # specify the version you desire here
