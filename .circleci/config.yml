@@ -4,8 +4,6 @@
 #
 version: 2
 jobs:
-  - run-tests:
-        context: VADDY
   build:
     docker:
       # specify the version you desire here
@@ -19,7 +17,7 @@ jobs:
       # - image: circleci/postgres:9.4
 
     working_directory: ~/repo
-
+    context: VADDY
     steps:
       - setup_remote_docker
       - checkout    
