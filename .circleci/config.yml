@@ -17,7 +17,7 @@ jobs:
       # - image: circleci/postgres:9.4
 
     working_directory: ~/repo
-    context: VADDY
+    - run-tests: context: VADDY
     steps:
       - setup_remote_docker
       - checkout    
@@ -48,9 +48,9 @@ jobs:
       - run: git clone https://github.com/vaddy/go-vaddy.git
     
       - run: touch go-vaddy/privatenet/conf/vaddy.conf
-      - run: echo export VADDY_AUTH_KEY=\"${VADDY_AUTH_KEY}\" >>  go-vaddy/privatenet/conf/vaddy.conf  
-      - run: echo export VADDY_FQDN=\"${VADDY_FQDN}\" >>  go-vaddy/privatenet/conf/vaddy.conf
-      - run: echo export VADDY_VERIFICATION_CODE=\"${VADDY_VERIFICATION_CODE}\" >>  go-vaddy/privatenet/conf/vaddy.conf
+      - run: echo export VADDY_AUTH_KEY=\"$VADDY_AUTH_KEY\" >>  go-vaddy/privatenet/conf/vaddy.conf  
+      - run: echo export VADDY_FQDN=\"$VADDY_FQDN\" >>  go-vaddy/privatenet/conf/vaddy.conf
+      - run: echo export VADDY_VERIFICATION_CODE=\"$VADDY_VERIFICATION_CODE\" >>  go-vaddy/privatenet/conf/vaddy.conf
       - run: echo export VADDY_USER=\"$VADDY_USER\" >>  go-vaddy/privatenet/conf/vaddy.conf
       - run: echo export VADDY_YOUR_LOCAL_IP=\"`hostname -i|sed -e 's/.3$//g'`.4\" >> go-vaddy/privatenet/conf/vaddy.conf
       - run: echo export export VADDY_YOUR_LOCAL_PORT=\"$VADDY_YOUR_LOCAL_PORT\" >> go-vaddy/privatenet/conf/vaddy.conf
