@@ -87,7 +87,7 @@ workflows:
   version: 2
   normal_workflow:
     jobs:
-      - build
+      - build:
           context: VADDY
   schedule_workflow:
     triggers:
